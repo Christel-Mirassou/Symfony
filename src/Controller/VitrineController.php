@@ -44,7 +44,13 @@ class VitrineController extends AbstractController
 
     function contact(Request $request): Response
     {
+         // INJECTION DE DEPENDANCE
+        // => SYMFONY NOUS FOURNIT L'OBJET $request
+        // => $request BOITE QUI CONTIENT LES INFOS DE FORMULAIRE ($_GET, $_POST, $_REQUEST)
+
+        // ON CREE UN OBJET POUR STOCKER LES INFOS DU FORMULAIRE
         $contact = new Contact();
+        
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
